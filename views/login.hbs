@@ -1,4 +1,4 @@
-<h1>Sign In</h1>
+<h1>Sign <em>In.</em></h1>
 
 {{#if errorMsg}}
   <p class="error">{{errorMsg}}</p>
@@ -6,12 +6,10 @@
 
 <form method="POST" action="/login">
   <label for="username">Username</label>
-  <input type="text" id="username" name="username" required>
+  <input type="text" id="username" name="username" required autocomplete="username">
 
   <label for="password">Password</label>
-  <input type="password" id="password" name="password" required>
+  <input type="password" id="password" name="password" required autocomplete="current-password">
 
-  <button type="submit">Log In</button>
+  <button type="submit">Log In &rarr;</button>
 </form>
-
-<a href="/toggle-theme">Toggle Theme</a>

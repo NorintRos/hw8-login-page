@@ -1,42 +1,135 @@
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 2rem;
-  transition: background 0.3s, color 0.3s;
+/* ── Theme ──────────────────────────────────── */
+:root {
+  --bg: #eef3ea;
+  --fg: #1a2e1a;
+  --muted: #6b7f6b;
+  --accent: #3a7d44;
+  --input-bg: #e2ead9;
+  --border: #1a2e1a;
 }
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Light mode (default) */
-body.light {
-  background-color: #ffffff;
-  color: #111111;
-}
-body.light input {
-  background: #f5f5f5;
-  color: #111111;
-  border: 1px solid #cccccc;
-}
-
-/* Dark mode */
 body.dark {
-  background-color: #1a1a2e;
-  color: #e0e0e0;
-}
-body.dark input {
-  background: #2a2a4a;
-  color: #e0e0e0;
-  border: 1px solid #555;
+  --bg: #0e1a0e;
+  --fg: #c8d8c0;
+  --muted: #5a6e52;
+  --accent: #5cb85c;
+  --input-bg: #1a2a1a;
+  --border: #c8d8c0;
 }
 
-/* Shared form */
-form   { display: flex; flex-direction: column; gap: 0.75rem; }
-label  { font-weight: bold; }
-input  { padding: 0.5rem; border-radius: 4px; font-size: 1rem; }
-button { padding: 0.6rem; cursor: pointer; font-size: 1rem; }
+/* ── Base ────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-.error { color: #cc0000; font-weight: bold; }
-a      { display: inline-block; margin-top: 1rem; margin-right: 1rem; }
+body {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  transition: background .3s, color .3s;
+}
+
+main {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 10rem 1.5rem 4rem;
+}
+
+/* ── Nav bar ─────────────────────────────────── */
+.bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  font-size: 12px;
+  letter-spacing: .1em;
+  border-bottom: 1px solid var(--border);
+}
+.bar a {
+  color: var(--fg);
+  text-decoration: none;
+}
+.bar a:hover { color: var(--accent); }
+
+/* ── Typography ──────────────────────────────── */
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: .95;
+  margin-bottom: 2.5rem;
+}
+h1 em { color: var(--accent); }
+
+/* ── Form ────────────────────────────────────── */
+form { display: flex; flex-direction: column; gap: .6rem; }
+
+label {
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: .8rem;
+}
+
+input {
+  font-family: inherit;
+  font-size: 14px;
+  padding: .7rem .8rem;
+  background: var(--input-bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  outline: none;
+  transition: border-color .2s;
+}
+input:focus { border-color: var(--accent); }
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-top: 1.2rem;
+  padding: .8rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+button:hover { opacity: .85; }
+
+/* ── Error ───────────────────────────────────── */
+.error {
+  color: var(--accent);
+  font-size: 13px;
+  margin-bottom: 1rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--accent);
+}
+
+/* ── Profile (definition list) ───────────────── */
+dl { margin-bottom: 2.5rem; }
+
+dt {
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 1.5rem;
+}
+
+dd { margin-top: .3rem; line-height: 1.6; }
+
+/* ── Links / nav ─────────────────────────────── */
+nav a, nav a:visited {
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+  transition: color .2s;
+}
+nav a:hover { color: var(--accent); border-color: var(--accent); }
